@@ -7,7 +7,6 @@
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
   <script src="/_sdk/element_sdk.js"></script>
-  <script src="/_sdk/data_sdk.js"></script>
   <style>
     * {
       margin: 0;
@@ -691,6 +690,7 @@
     }
   </style>
   <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  <script src="/_sdk/telemetry_sdk.js"></script></head>
  <body>
   <div class="app-wrapper">
@@ -703,20 +703,16 @@
      <div style="max-width: 400px; margin: 3rem auto; background: white; padding: 2rem; border-radius: 0.75rem; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
       <h1 style="font-size: 1.75rem; color: #1e3c72; margin-bottom: 0.5rem; text-align: center;">Freight Calculator Pro</h1>
       <p style="text-align: center; color: #666; margin-bottom: 2rem;">Sistema de Gestão de Fretes</p>
-      <div style="margin-bottom: 1rem;">
-       <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Tipo de Acesso</label> <select id="access-type" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;"> <option value="driver">Motorista</option> <option value="admin">Administrador</option> </select>
+      <div style="margin-bottom: 1rem;"><label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Tipo de Acesso</label> <select id="access-type" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;"> <option value="driver">Motorista</option> <option value="admin">Administrador</option> </select>
       </div>
       <div id="driver-login">
-       <div style="margin-bottom: 1rem;">
-        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Email</label> <input type="email" id="login-email" placeholder="seu@email.com" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;">
+       <div style="margin-bottom: 1rem;"><label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Email</label> <input type="email" id="login-email" placeholder="seu@email.com" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;">
        </div>
-       <div style="margin-bottom: 1.5rem;">
-        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Senha</label> <input type="password" id="login-password" placeholder="Sua senha" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;">
+       <div style="margin-bottom: 1.5rem;"><label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Senha</label> <input type="password" id="login-password" placeholder="Sua senha" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;">
        </div>
       </div>
       <div id="admin-login" style="display: none;">
-       <div style="margin-bottom: 1.5rem;">
-        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Senha Admin</label> <input type="password" id="login-admin-password" placeholder="Senha do administrador" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;">
+       <div style="margin-bottom: 1.5rem;"><label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Senha Admin</label> <input type="password" id="login-admin-password" placeholder="Senha do administrador" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;">
        </div>
       </div><button id="login-btn" style="width: 100%; padding: 0.875rem; background: #2563eb; color: white; border: none; border-radius: 0.5rem; font-weight: 600; cursor: pointer; font-size: 1rem;">Entrar</button>
       <div id="login-error" style="display: none; margin-top: 1rem; padding: 1rem; background: #fee2e2; border: 1px solid #fca5a5; color: #991b1b; border-radius: 0.5rem;"></div>
@@ -724,7 +720,8 @@
     </div>
     <div id="app-screen" style="display: none;">
      <div class="tab-container">
-      <div class="tabs" id="tab-buttons"><button class="tab-btn active" data-tab="dashboard"> <i data-lucide="bar-chart-2"></i> Dashboard </button> <button class="tab-btn" data-tab="calculator"> <i data-lucide="calculator"></i> Calculadora </button> <button class="tab-btn" data-tab="rides"> <i data-lucide="navigation"></i> Minhas Entregas </button> <button class="tab-btn" data-tab="history"> <i data-lucide="history"></i> Histórico </button> <button class="tab-btn" data-tab="settings"> <i data-lucide="settings"></i> Configurações </button> <button class="tab-btn" data-tab="admin" id="admin-tab" style="display: none;"> <i data-lucide="shield"></i> Admin </button> <button class="tab-btn logout-btn" style="background: #dc2626; color: white;"> <i data-lucide="log-out"></i> Sair </button>
+      <div class="tabs" id="tab-buttons">
+       <button class="tab-btn active" data-tab="dashboard"> <i data-lucide="bar-chart-2"></i> Dashboard </button> <button class="tab-btn" data-tab="calculator"> <i data-lucide="calculator"></i> Calculadora </button> <button class="tab-btn" data-tab="rides"> <i data-lucide="navigation"></i> Minhas Entregas </button> <button class="tab-btn" data-tab="history"> <i data-lucide="history"></i> Histórico </button> <button class="tab-btn" data-tab="settings"> <i data-lucide="settings"></i> Configurações </button> <button class="tab-btn" data-tab="admin" id="admin-tab" style="display: none;"> <i data-lucide="shield"></i> Admin </button> <button class="tab-btn logout-btn" style="background: #dc2626; color: white;"> <i data-lucide="log-out"></i> Sair </button>
       </div><!-- TAB: DASHBOARD -->
       <div id="dashboard" class="tab-content active">
        <div class="card">
@@ -742,46 +739,61 @@
         <h2><i data-lucide="truck"></i> Calcular Frete</h2><!-- ENDEREÇO DE ORIGEM -->
         <h3>📍 Endereço de Origem</h3>
         <div class="form-row">
-         <div class="form-group"><label for="origin_cep">CEP</label> <input type="text" id="origin_cep" placeholder="01310-100" maxlength="10">
+         <div class="form-group">
+          <label for="origin_cep">CEP</label> <input type="text" id="origin_cep" placeholder="01310-100" maxlength="10">
          </div>
-         <div class="form-group"><label for="origin_street">Rua</label> <input type="text" id="origin_street" placeholder="Avenida Paulista">
+         <div class="form-group">
+          <label for="origin_street">Rua</label> <input type="text" id="origin_street" placeholder="Avenida Paulista">
          </div>
-         <div class="form-group"><label for="origin_number">Número</label> <input type="text" id="origin_number" placeholder="1000">
+         <div class="form-group">
+          <label for="origin_number">Número</label> <input type="text" id="origin_number" placeholder="1000">
          </div>
         </div>
         <div class="form-row">
-         <div class="form-group"><label for="origin_neighborhood">Bairro</label> <input type="text" id="origin_neighborhood" placeholder="Bela Vista">
+         <div class="form-group">
+          <label for="origin_neighborhood">Bairro</label> <input type="text" id="origin_neighborhood" placeholder="Bela Vista">
          </div>
-         <div class="form-group"><label for="origin_city">Cidade</label> <select id="origin_city"> <option value="">Selecione a cidade...</option> <option value="São Paulo">São Paulo</option> <option value="Rio de Janeiro">Rio de Janeiro</option> <option value="Belo Horizonte">Belo Horizonte</option> <option value="Brasília">Brasília</option> <option value="Salvador">Salvador</option> <option value="Fortaleza">Fortaleza</option> <option value="Manaus">Manaus</option> <option value="Recife">Recife</option> <option value="Porto Alegre">Porto Alegre</option> <option value="Curitiba">Curitiba</option> <option value="Goiânia">Goiânia</option> <option value="Belém">Belém</option> <option value="Guarulhos">Guarulhos</option> <option value="Campinas">Campinas</option> <option value="Santos">Santos</option> </select>
+         <div class="form-group">
+          <label for="origin_city">Cidade</label> <select id="origin_city"> <option value="">Selecione a cidade...</option> <option value="São Paulo">São Paulo</option> <option value="Rio de Janeiro">Rio de Janeiro</option> <option value="Belo Horizonte">Belo Horizonte</option> <option value="Brasília">Brasília</option> <option value="Salvador">Salvador</option> <option value="Fortaleza">Fortaleza</option> <option value="Manaus">Manaus</option> <option value="Recife">Recife</option> <option value="Porto Alegre">Porto Alegre</option> <option value="Curitiba">Curitiba</option> <option value="Goiânia">Goiânia</option> <option value="Belém">Belém</option> <option value="Guarulhos">Guarulhos</option> <option value="Campinas">Campinas</option> <option value="Santos">Santos</option> </select>
          </div>
-         <div class="form-group"><label for="origin_state">Estado</label> <input type="text" id="origin_state" placeholder="SP" maxlength="2">
+         <div class="form-group">
+          <label for="origin_state">Estado</label> <input type="text" id="origin_state" placeholder="SP" maxlength="2">
          </div>
         </div><!-- ENDEREÇO DE DESTINO -->
         <h3>🎯 Endereço de Destino</h3>
         <div class="form-row">
-         <div class="form-group"><label for="destination_cep">CEP</label> <input type="text" id="destination_cep" placeholder="20040020" maxlength="10">
+         <div class="form-group">
+          <label for="destination_cep">CEP</label> <input type="text" id="destination_cep" placeholder="20040020" maxlength="10">
          </div>
-         <div class="form-group"><label for="destination_street">Rua</label> <input type="text" id="destination_street" placeholder="Avenida Rio Branco">
+         <div class="form-group">
+          <label for="destination_street">Rua</label> <input type="text" id="destination_street" placeholder="Avenida Rio Branco">
          </div>
-         <div class="form-group"><label for="destination_number">Número</label> <input type="text" id="destination_number" placeholder="500">
+         <div class="form-group">
+          <label for="destination_number">Número</label> <input type="text" id="destination_number" placeholder="500">
          </div>
         </div>
         <div class="form-row">
-         <div class="form-group"><label for="destination_neighborhood">Bairro</label> <input type="text" id="destination_neighborhood" placeholder="Centro">
+         <div class="form-group">
+          <label for="destination_neighborhood">Bairro</label> <input type="text" id="destination_neighborhood" placeholder="Centro">
          </div>
-         <div class="form-group"><label for="destination_city">Cidade</label> <select id="destination_city"> <option value="">Selecione a cidade...</option> <option value="São Paulo">São Paulo</option> <option value="Rio de Janeiro">Rio de Janeiro</option> <option value="Belo Horizonte">Belo Horizonte</option> <option value="Brasília">Brasília</option> <option value="Salvador">Salvador</option> <option value="Fortaleza">Fortaleza</option> <option value="Manaus">Manaus</option> <option value="Recife">Recife</option> <option value="Porto Alegre">Porto Alegre</option> <option value="Curitiba">Curitiba</option> <option value="Goiânia">Goiânia</option> <option value="Belém">Belém</option> <option value="Guarulhos">Guarulhos</option> <option value="Campinas">Campinas</option> <option value="Santos">Santos</option> </select>
+         <div class="form-group">
+          <label for="destination_city">Cidade</label> <select id="destination_city"> <option value="">Selecione a cidade...</option> <option value="São Paulo">São Paulo</option> <option value="Rio de Janeiro">Rio de Janeiro</option> <option value="Belo Horizonte">Belo Horizonte</option> <option value="Brasília">Brasília</option> <option value="Salvador">Salvador</option> <option value="Fortaleza">Fortaleza</option> <option value="Manaus">Manaus</option> <option value="Recife">Recife</option> <option value="Porto Alegre">Porto Alegre</option> <option value="Curitiba">Curitiba</option> <option value="Goiânia">Goiânia</option> <option value="Belém">Belém</option> <option value="Guarulhos">Guarulhos</option> <option value="Campinas">Campinas</option> <option value="Santos">Santos</option> </select>
          </div>
-         <div class="form-group"><label for="destination_state">Estado</label> <input type="text" id="destination_state" placeholder="RJ" maxlength="2">
+         <div class="form-group">
+          <label for="destination_state">Estado</label> <input type="text" id="destination_state" placeholder="RJ" maxlength="2">
          </div>
         </div>
         <div id="fuel-info"></div><!-- DADOS DO FRETE -->
         <h3>📦 Dados do Frete</h3>
         <div class="form-row">
-         <div class="form-group"><label for="distance_km">Distância (km)</label> <input type="number" id="distance_km" placeholder="Calculada automaticamente" min="0" step="0.1" readonly>
+         <div class="form-group">
+          <label for="distance_km">Distância (km)</label> <input type="number" id="distance_km" placeholder="Calculada automaticamente" min="0" step="0.1" readonly>
          </div>
-         <div class="form-group"><label for="weight_kg">Peso (kg)</label> <input type="number" id="weight_kg" placeholder="500" min="0" step="0.1">
+         <div class="form-group">
+          <label for="weight_kg">Peso (kg)</label> <input type="number" id="weight_kg" placeholder="500" min="0" step="0.1">
          </div>
-         <div class="form-group"><label for="modality">Modalidade</label> <select id="modality"> <option value="econômico">Econômico</option> <option value="expresso">Expresso</option> <option value="premium">Premium</option> </select>
+         <div class="form-group">
+          <label for="modality">Modalidade</label> <select id="modality"> <option value="econômico">Econômico</option> <option value="expresso">Expresso</option> <option value="premium">Premium</option> </select>
          </div>
         </div>
         <div id="success-message"></div><button class="btn btn-primary" id="calculate-btn"> <i data-lucide="zap"></i> Calcular Frete </button>
@@ -804,22 +816,28 @@
        <div class="card">
         <h2><i data-lucide="sliders"></i> Configurações de Preço</h2>
         <div class="settings-grid">
-         <div class="form-group"><label for="base_rate">Taxa Base (R$ por km)</label> <input type="number" id="base_rate" placeholder="2.50" step="0.01" min="0">
+         <div class="form-group">
+          <label for="base_rate">Taxa Base (R$ por km)</label> <input type="number" id="base_rate" placeholder="2.50" step="0.01" min="0">
          </div>
-         <div class="form-group"><label for="weight_rate">Multiplicador de Peso (R$ por kg)</label> <input type="number" id="weight_rate" placeholder="0.15" step="0.01" min="0">
+         <div class="form-group">
+          <label for="weight_rate">Multiplicador de Peso (R$ por kg)</label> <input type="number" id="weight_rate" placeholder="0.15" step="0.01" min="0">
          </div>
-         <div class="form-group"><label for="vehicle_consumption">Consumo do Veículo (km/litro)</label> <input type="number" id="vehicle_consumption" placeholder="5.0" step="0.1" min="0.1">
+         <div class="form-group">
+          <label for="vehicle_consumption">Consumo do Veículo (km/litro)</label> <input type="number" id="vehicle_consumption" placeholder="5.0" step="0.1" min="0.1">
          </div>
-         <div class="form-group"><label for="fuel_price">Preço do Combustível (R$ por litro)</label> <input type="number" id="fuel_price" placeholder="5.50" step="0.01" min="0">
+         <div class="form-group">
+          <label for="fuel_price">Preço do Combustível (R$ por litro)</label> <input type="number" id="fuel_price" placeholder="5.50" step="0.01" min="0">
          </div>
         </div><button class="btn btn-primary" id="save-settings-btn"> <i data-lucide="save"></i> Salvar Configurações </button>
        </div>
        <div class="card">
         <h2><i data-lucide="database"></i> Gerenciamento de Dados</h2>
         <p style="color: #666; margin-bottom: 1rem;">Total de registros: <strong id="record-count">0</strong></p>
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;"><button class="btn btn-primary" id="backup-btn" style="background: #2563eb;"> <i data-lucide="download"></i> 💾 Baixar Backup (JSON) </button> <button class="btn btn-danger" id="clear-history-btn"> <i data-lucide="trash-2"></i> Limpar Histórico </button>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+         <button class="btn btn-primary" id="backup-btn" style="background: #2563eb;"> <i data-lucide="download"></i> 💾 Baixar Backup (JSON) </button> <button class="btn btn-danger" id="clear-history-btn"> <i data-lucide="trash-2"></i> Limpar Histórico </button>
         </div>
-        <div id="backup-info" style="margin-top: 1.5rem; padding: 1rem; background: #f0f9ff; border-left: 4px solid #0ea5e9; border-radius: 0.5rem; color: #0c4a6e; display: none;"><strong>💡 Como usar o backup:</strong>
+        <div id="backup-info" style="margin-top: 1.5rem; padding: 1rem; background: #f0f9ff; border-left: 4px solid #0ea5e9; border-radius: 0.5rem; color: #0c4a6e; display: none;">
+         <strong>💡 Como usar o backup:</strong>
          <ol style="margin: 0.5rem 0 0 1.5rem; padding: 0;">
           <li>Clique em "Baixar Backup" para salvar seus dados</li>
           <li>Coloque o arquivo em um lugar seguro</li>
@@ -1116,9 +1134,12 @@
       });
     }
 
-    // Initialize Data SDK
-    const dataHandler = {
-      onDataChanged(data) {
+    // Initialize localStorage
+    function loadAllData() {
+      try {
+        const stored = localStorage.getItem('fcp_all_data');
+        const data = stored ? JSON.parse(stored) : [];
+        
         allRecords = data.filter(r => !r.ride_id && !r.driver_id);
         allRides = data.filter(r => r.ride_id);
         allDrivers = data.filter(r => r.driver_id);
@@ -1136,14 +1157,22 @@
         updateRecordCount();
         updateDashboard();
         if (isAdmin) updateAdminUI();
+      } catch (e) {
+        console.error('Error loading data:', e);
       }
-    };
+    }
 
-    async function initData() {
-      const result = await window.dataSdk.init(dataHandler);
-      if (!result.isOk) {
-        console.error('Failed to initialize data SDK');
+    function saveAllData() {
+      try {
+        const allData = [...allRecords, ...allRides, ...allDrivers];
+        localStorage.setItem('fcp_all_data', JSON.stringify(allData));
+      } catch (e) {
+        console.error('Error saving data:', e);
       }
+    }
+
+    function initData() {
+      loadAllData();
       checkLoginStatus();
     }
 
@@ -1334,18 +1363,17 @@
       btn.disabled = true;
       btn.innerHTML = '<span class="loading"></span> Salvando...';
 
-      const result = await window.dataSdk.create(record);
+      allRecords.push(record);
+      saveAllData();
       
       btn.disabled = false;
       btn.innerHTML = '<i data-lucide="zap"></i> Calcular Frete';
       lucide.createIcons();
 
-      if (result.isOk) {
-        showSuccessMessage('Cálculo salvo no histórico!');
-        calculationsUsedThisMonth++;
-      } else {
-        showErrorMessage('Erro ao salvar cálculo');
-      }
+      showSuccessMessage('Cálculo salvo no histórico!');
+      calculationsUsedThisMonth++;
+      updateHistoryUI();
+      updateDashboard();
     });
 
     // Display result
@@ -1475,7 +1503,7 @@
           <td><strong>R$ ${record.total_price.toFixed(2)}</strong></td>
           <td>${date}</td>
           <td>
-            <button class="btn btn-danger" style="padding: 0.5rem 0.75rem; font-size: 0.85rem;" data-id="${record.__backendId}">
+            <button class="btn btn-danger" style="padding: 0.5rem 0.75rem; font-size: 0.85rem;" data-id="${record.created_at}">
               <i data-lucide="trash-2" style="width: 16px; height: 16px;"></i>
             </button>
           </td>
@@ -1490,12 +1518,14 @@
         btn.addEventListener('click', async (e) => {
           e.preventDefault();
           const id = btn.dataset.id;
-          const record = allRecords.find(r => r.__backendId === id);
+          const index = allRecords.findIndex(r => r.created_at === id);
           
           btn.disabled = true;
-          const result = await window.dataSdk.delete(record);
-          if (!result.isOk) {
-            showErrorMessage('Erro ao excluir registro');
+          if (index > -1) {
+            allRecords.splice(index, 1);
+            saveAllData();
+            updateHistoryUI();
+          } else {
             btn.disabled = false;
           }
         });
@@ -1625,37 +1655,16 @@
 
             try {
               // Deletar dados atuais
-              for (const record of allRecords) {
-                await window.dataSdk.delete(record);
-              }
-              for (const ride of allRides) {
-                await window.dataSdk.delete(ride);
-              }
-              for (const driver of allDrivers) {
-                await window.dataSdk.delete(driver);
-              }
-
+              allRecords = [];
+              allRides = [];
+              allDrivers = [];
+              
               // Restaurar dados do backup
-              for (const record of backupData.records) {
-                const { __backendId, ...cleanRecord } = record;
-                await window.dataSdk.create(cleanRecord);
-              }
-              for (const ride of backupData.rides) {
-                const { __backendId, ...cleanRecord } = ride;
-                await window.dataSdk.create(cleanRecord);
-              }
-              for (const driver of backupData.drivers) {
-                const { __backendId, ...cleanRecord } = driver;
-                await window.dataSdk.create(cleanRecord);
-              }
-
-              // Restaurar config
-              if (backupData.config) {
-                config = { ...config, ...backupData.config };
-                if (window.elementSdk) {
-                  await window.elementSdk.setConfig(config);
-                }
-              }
+              backupData.records.forEach(r => allRecords.push(r));
+              backupData.rides.forEach(r => allRides.push(r));
+              backupData.drivers.forEach(r => allDrivers.push(r));
+              
+              saveAllData();
 
               overlay.remove();
               showSuccessMessage('✅ Backup restaurado com sucesso! Atualizando dados...');
@@ -1691,14 +1700,15 @@
       btn.disabled = true;
       btn.innerHTML = '<span class="loading"></span> Limpando...';
 
-      for (const record of allRecords) {
-        await window.dataSdk.delete(record);
-      }
+      allRecords = [];
+      saveAllData();
 
       btn.disabled = false;
       btn.innerHTML = '<i data-lucide="trash-2"></i> Limpar Histórico';
       lucide.createIcons();
       showSuccessMessage('Histórico limpo!');
+      updateHistoryUI();
+      updateDashboard();
     });
 
     // ===== RIDES FUNCTIONS =====
@@ -1998,16 +2008,13 @@
           created_at: new Date().toISOString()
         };
 
-        const result = await window.dataSdk.create(rideRecord);
+        allRides.push(rideRecord);
+        saveAllData();
         
-        if (result.isOk) {
-          overlay.remove();
-          showSuccessMessage('Entrega iniciada com sucesso!');
-        } else {
-          btn.disabled = false;
-          btn.textContent = 'Iniciar';
-          showErrorMessage('Erro ao iniciar entrega');
-        }
+        overlay.remove();
+        showSuccessMessage('Entrega iniciada com sucesso!');
+        updateRidesUI();
+        updateDashboard();
       });
       
       overlay.addEventListener('click', (e) => {
@@ -2019,7 +2026,8 @@
 
     window.finishRide = async function(rideId) {
       const finalKm = parseFloat(document.getElementById(`final_km_${rideId}`).value);
-      const ride = allRides.find(r => r.ride_id === rideId);
+      const rideIndex = allRides.findIndex(r => r.ride_id === rideId);
+      const ride = allRides[rideIndex];
 
       if (isNaN(finalKm) || finalKm <= ride.km_initial) {
         showErrorMessage('KM final deve ser maior que KM inicial');
@@ -2042,21 +2050,17 @@
         ride_end_time: new Date().toISOString()
       };
 
+      allRides[rideIndex] = updatedRide;
+      saveAllData();
+
       const btn = event.target;
-      btn.disabled = true;
-      btn.innerHTML = '<span class="loading"></span> Finalizando...';
-
-      const result = await window.dataSdk.update(updatedRide);
-
       btn.disabled = false;
-      btn.innerHTML = '<i data-lucide="stop-circle"></i> Finalizar Corrida';
+      btn.innerHTML = '<i data-lucide="check-circle"></i> Finalizar Entrega';
       lucide.createIcons();
 
-      if (result.isOk) {
-        showSuccessMessage(`Corrida finalizada! Lucro: R$ ${profit.toFixed(2)}`);
-      } else {
-        showErrorMessage('Erro ao finalizar corrida');
-      }
+      showSuccessMessage(`Corrida finalizada! Lucro: R$ ${profit.toFixed(2)}`);
+      updateRidesUI();
+      updateDashboard();
     };
 
     // ===== ADMIN FUNCTIONS =====
@@ -2121,7 +2125,7 @@
             <button class="btn" style="background: #2563eb; color: white; padding: 0.4rem 0.8rem; font-size: 0.85rem; margin: 0 0.25rem;" onclick="editDriver('${driver.driver_id}')">
               <i data-lucide="edit-2" style="width: 14px; height: 14px;"></i>
             </button>
-            <button class="btn" style="background: #dc2626; color: white; padding: 0.4rem 0.8rem; font-size: 0.85rem;" data-id="${driver.__backendId}">
+            <button class="btn" style="background: #dc2626; color: white; padding: 0.4rem 0.8rem; font-size: 0.85rem;" data-driver-id="${driver.driver_id}">
               <i data-lucide="trash-2" style="width: 14px; height: 14px;"></i>
             </button>
           </td>
@@ -2133,11 +2137,12 @@
       lucide.createIcons();
 
       // Botões de deletar
-      container.querySelectorAll('[data-id]').forEach(btn => {
+      container.querySelectorAll('[data-driver-id]').forEach(btn => {
         btn.addEventListener('click', async (e) => {
           e.preventDefault();
-          const id = btn.dataset.id;
-          const driver = allDrivers.find(d => d.__backendId === id);
+          const driverId = btn.dataset.driverId;
+          const driverIndex = allDrivers.findIndex(d => d.driver_id === driverId);
+          const driver = allDrivers[driverIndex];
           
           // Modal de confirmação
           const overlay = document.createElement('div');
@@ -2167,15 +2172,12 @@
             delBtn.disabled = true;
             delBtn.textContent = 'Deletando...';
             
-            const result = await window.dataSdk.delete(driver);
-            if (result.isOk) {
-              overlay.remove();
-              showSuccessMessage('Motorista deletado com sucesso!');
-            } else {
-              delBtn.disabled = false;
-              delBtn.textContent = 'Deletar';
-              showErrorMessage('Erro ao deletar motorista');
-            }
+            allDrivers.splice(driverIndex, 1);
+            saveAllData();
+            
+            overlay.remove();
+            showSuccessMessage('Motorista deletado com sucesso!');
+            updateAdminDriversList();
           });
           
           overlay.addEventListener('click', (e) => {
@@ -2283,16 +2285,12 @@
           created_at: new Date().toISOString()
         };
 
-        const result = await window.dataSdk.create(driverRecord);
+        allDrivers.push(driverRecord);
+        saveAllData();
         
-        if (result.isOk) {
-          overlay.remove();
-          showSuccessMessage('Motorista cadastrado com sucesso!');
-        } else {
-          btn.disabled = false;
-          btn.textContent = 'Cadastrar';
-          showErrorMessage('Erro ao cadastrar motorista');
-        }
+        overlay.remove();
+        showSuccessMessage('Motorista cadastrado com sucesso!');
+        updateAdminDriversList();
       });
       
       overlay.addEventListener('click', (e) => {
@@ -2366,6 +2364,7 @@
       document.getElementById('edit_submit').addEventListener('click', async () => {
         const newPassword = document.getElementById('edit_driver_new_password').value.trim();
         
+        const driverIndex = allDrivers.findIndex(d => d.driver_id === driverId);
         const updatedDriver = {
           ...driver,
           driver_name: document.getElementById('edit_driver_name').value,
@@ -2382,17 +2381,13 @@
         btn.disabled = true;
         btn.textContent = 'Salvando...';
 
-        const result = await window.dataSdk.update(updatedDriver);
+        allDrivers[driverIndex] = updatedDriver;
+        saveAllData();
         
-        if (result.isOk) {
-          overlay.remove();
-          const msg = newPassword ? 'Motorista atualizado! Nova senha ativa.' : 'Motorista atualizado com sucesso!';
-          showSuccessMessage(msg);
-        } else {
-          btn.disabled = false;
-          btn.textContent = 'Salvar Alterações';
-          showErrorMessage('Erro ao atualizar motorista');
-        }
+        overlay.remove();
+        const msg = newPassword ? 'Motorista atualizado! Nova senha ativa.' : 'Motorista atualizado com sucesso!';
+        showSuccessMessage(msg);
+        updateAdminDriversList();
       });
       
       overlay.addEventListener('click', (e) => {
@@ -2539,5 +2534,5 @@
       document.getElementById('summary-stats').innerHTML = html;
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a06b5b503f1fb530',t:'MTc4MDYyMjQ0Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a06b5eaa3948c802',t:'MTc4MDYyMjU4Mw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
