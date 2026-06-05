@@ -703,16 +703,20 @@
      <div style="max-width: 400px; margin: 3rem auto; background: white; padding: 2rem; border-radius: 0.75rem; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
       <h1 style="font-size: 1.75rem; color: #1e3c72; margin-bottom: 0.5rem; text-align: center;">Freight Calculator Pro</h1>
       <p style="text-align: center; color: #666; margin-bottom: 2rem;">Sistema de Gestão de Fretes</p>
-      <div style="margin-bottom: 1rem;"><label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Tipo de Acesso</label> <select id="access-type" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;"> <option value="driver">Motorista</option> <option value="admin">Administrador</option> </select>
+      <div style="margin-bottom: 1rem;">
+       <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Tipo de Acesso</label> <select id="access-type" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;"> <option value="driver">Motorista</option> <option value="admin">Administrador</option> </select>
       </div>
       <div id="driver-login">
-       <div style="margin-bottom: 1rem;"><label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Email</label> <input type="email" id="login-email" placeholder="seu@email.com" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;">
+       <div style="margin-bottom: 1rem;">
+        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Email</label> <input type="email" id="login-email" placeholder="seu@email.com" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;">
        </div>
-       <div style="margin-bottom: 1.5rem;"><label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Senha</label> <input type="password" id="login-password" placeholder="Sua senha" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;">
+       <div style="margin-bottom: 1.5rem;">
+        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Senha</label> <input type="password" id="login-password" placeholder="Sua senha" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;">
        </div>
       </div>
       <div id="admin-login" style="display: none;">
-       <div style="margin-bottom: 1.5rem;"><label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Senha Admin</label> <input type="password" id="login-admin-password" placeholder="Senha do administrador" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;">
+       <div style="margin-bottom: 1.5rem;">
+        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Senha Admin</label> <input type="password" id="login-admin-password" placeholder="Senha do administrador" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;">
        </div>
       </div><button id="login-btn" style="width: 100%; padding: 0.875rem; background: #2563eb; color: white; border: none; border-radius: 0.5rem; font-weight: 600; cursor: pointer; font-size: 1rem;">Entrar</button>
       <div id="login-error" style="display: none; margin-top: 1rem; padding: 1rem; background: #fee2e2; border: 1px solid #fca5a5; color: #991b1b; border-radius: 0.5rem;"></div>
@@ -720,8 +724,7 @@
     </div>
     <div id="app-screen" style="display: none;">
      <div class="tab-container">
-      <div class="tabs" id="tab-buttons">
-       <button class="tab-btn active" data-tab="dashboard"> <i data-lucide="bar-chart-2"></i> Dashboard </button> <button class="tab-btn" data-tab="calculator"> <i data-lucide="calculator"></i> Calculadora </button> <button class="tab-btn" data-tab="rides"> <i data-lucide="navigation"></i> Minhas Entregas </button> <button class="tab-btn" data-tab="history"> <i data-lucide="history"></i> Histórico </button> <button class="tab-btn" data-tab="settings"> <i data-lucide="settings"></i> Configurações </button> <button class="tab-btn" data-tab="admin" id="admin-tab" style="display: none;"> <i data-lucide="shield"></i> Admin </button> <button class="tab-btn logout-btn" style="background: #dc2626; color: white;"> <i data-lucide="log-out"></i> Sair </button>
+      <div class="tabs" id="tab-buttons"><button class="tab-btn active" data-tab="dashboard"> <i data-lucide="bar-chart-2"></i> Dashboard </button> <button class="tab-btn" data-tab="calculator"> <i data-lucide="calculator"></i> Calculadora </button> <button class="tab-btn" data-tab="rides"> <i data-lucide="navigation"></i> Minhas Entregas </button> <button class="tab-btn" data-tab="history"> <i data-lucide="history"></i> Histórico </button> <button class="tab-btn" data-tab="settings"> <i data-lucide="settings"></i> Configurações </button> <button class="tab-btn" data-tab="admin" id="admin-tab" style="display: none;"> <i data-lucide="shield"></i> Admin </button> <button class="tab-btn logout-btn" style="background: #dc2626; color: white;"> <i data-lucide="log-out"></i> Sair </button>
       </div><!-- TAB: DASHBOARD -->
       <div id="dashboard" class="tab-content active">
        <div class="card">
@@ -739,61 +742,46 @@
         <h2><i data-lucide="truck"></i> Calcular Frete</h2><!-- ENDEREÇO DE ORIGEM -->
         <h3>📍 Endereço de Origem</h3>
         <div class="form-row">
-         <div class="form-group">
-          <label for="origin_cep">CEP</label> <input type="text" id="origin_cep" placeholder="01310-100" maxlength="10">
+         <div class="form-group"><label for="origin_cep">CEP</label> <input type="text" id="origin_cep" placeholder="01310-100" maxlength="10">
          </div>
-         <div class="form-group">
-          <label for="origin_street">Rua</label> <input type="text" id="origin_street" placeholder="Avenida Paulista">
+         <div class="form-group"><label for="origin_street">Rua</label> <input type="text" id="origin_street" placeholder="Avenida Paulista">
          </div>
-         <div class="form-group">
-          <label for="origin_number">Número</label> <input type="text" id="origin_number" placeholder="1000">
+         <div class="form-group"><label for="origin_number">Número</label> <input type="text" id="origin_number" placeholder="1000">
          </div>
         </div>
         <div class="form-row">
-         <div class="form-group">
-          <label for="origin_neighborhood">Bairro</label> <input type="text" id="origin_neighborhood" placeholder="Bela Vista">
+         <div class="form-group"><label for="origin_neighborhood">Bairro</label> <input type="text" id="origin_neighborhood" placeholder="Bela Vista">
          </div>
-         <div class="form-group">
-          <label for="origin_city">Cidade</label> <select id="origin_city"> <option value="">Selecione a cidade...</option> <option value="São Paulo">São Paulo</option> <option value="Rio de Janeiro">Rio de Janeiro</option> <option value="Belo Horizonte">Belo Horizonte</option> <option value="Brasília">Brasília</option> <option value="Salvador">Salvador</option> <option value="Fortaleza">Fortaleza</option> <option value="Manaus">Manaus</option> <option value="Recife">Recife</option> <option value="Porto Alegre">Porto Alegre</option> <option value="Curitiba">Curitiba</option> <option value="Goiânia">Goiânia</option> <option value="Belém">Belém</option> <option value="Guarulhos">Guarulhos</option> <option value="Campinas">Campinas</option> <option value="Santos">Santos</option> </select>
+         <div class="form-group"><label for="origin_city">Cidade</label> <select id="origin_city"> <option value="">Selecione a cidade...</option> <option value="São Paulo">São Paulo</option> <option value="Rio de Janeiro">Rio de Janeiro</option> <option value="Belo Horizonte">Belo Horizonte</option> <option value="Brasília">Brasília</option> <option value="Salvador">Salvador</option> <option value="Fortaleza">Fortaleza</option> <option value="Manaus">Manaus</option> <option value="Recife">Recife</option> <option value="Porto Alegre">Porto Alegre</option> <option value="Curitiba">Curitiba</option> <option value="Goiânia">Goiânia</option> <option value="Belém">Belém</option> <option value="Guarulhos">Guarulhos</option> <option value="Campinas">Campinas</option> <option value="Santos">Santos</option> </select>
          </div>
-         <div class="form-group">
-          <label for="origin_state">Estado</label> <input type="text" id="origin_state" placeholder="SP" maxlength="2">
+         <div class="form-group"><label for="origin_state">Estado</label> <input type="text" id="origin_state" placeholder="SP" maxlength="2">
          </div>
         </div><!-- ENDEREÇO DE DESTINO -->
         <h3>🎯 Endereço de Destino</h3>
         <div class="form-row">
-         <div class="form-group">
-          <label for="destination_cep">CEP</label> <input type="text" id="destination_cep" placeholder="20040020" maxlength="10">
+         <div class="form-group"><label for="destination_cep">CEP</label> <input type="text" id="destination_cep" placeholder="20040020" maxlength="10">
          </div>
-         <div class="form-group">
-          <label for="destination_street">Rua</label> <input type="text" id="destination_street" placeholder="Avenida Rio Branco">
+         <div class="form-group"><label for="destination_street">Rua</label> <input type="text" id="destination_street" placeholder="Avenida Rio Branco">
          </div>
-         <div class="form-group">
-          <label for="destination_number">Número</label> <input type="text" id="destination_number" placeholder="500">
+         <div class="form-group"><label for="destination_number">Número</label> <input type="text" id="destination_number" placeholder="500">
          </div>
         </div>
         <div class="form-row">
-         <div class="form-group">
-          <label for="destination_neighborhood">Bairro</label> <input type="text" id="destination_neighborhood" placeholder="Centro">
+         <div class="form-group"><label for="destination_neighborhood">Bairro</label> <input type="text" id="destination_neighborhood" placeholder="Centro">
          </div>
-         <div class="form-group">
-          <label for="destination_city">Cidade</label> <select id="destination_city"> <option value="">Selecione a cidade...</option> <option value="São Paulo">São Paulo</option> <option value="Rio de Janeiro">Rio de Janeiro</option> <option value="Belo Horizonte">Belo Horizonte</option> <option value="Brasília">Brasília</option> <option value="Salvador">Salvador</option> <option value="Fortaleza">Fortaleza</option> <option value="Manaus">Manaus</option> <option value="Recife">Recife</option> <option value="Porto Alegre">Porto Alegre</option> <option value="Curitiba">Curitiba</option> <option value="Goiânia">Goiânia</option> <option value="Belém">Belém</option> <option value="Guarulhos">Guarulhos</option> <option value="Campinas">Campinas</option> <option value="Santos">Santos</option> </select>
+         <div class="form-group"><label for="destination_city">Cidade</label> <select id="destination_city"> <option value="">Selecione a cidade...</option> <option value="São Paulo">São Paulo</option> <option value="Rio de Janeiro">Rio de Janeiro</option> <option value="Belo Horizonte">Belo Horizonte</option> <option value="Brasília">Brasília</option> <option value="Salvador">Salvador</option> <option value="Fortaleza">Fortaleza</option> <option value="Manaus">Manaus</option> <option value="Recife">Recife</option> <option value="Porto Alegre">Porto Alegre</option> <option value="Curitiba">Curitiba</option> <option value="Goiânia">Goiânia</option> <option value="Belém">Belém</option> <option value="Guarulhos">Guarulhos</option> <option value="Campinas">Campinas</option> <option value="Santos">Santos</option> </select>
          </div>
-         <div class="form-group">
-          <label for="destination_state">Estado</label> <input type="text" id="destination_state" placeholder="RJ" maxlength="2">
+         <div class="form-group"><label for="destination_state">Estado</label> <input type="text" id="destination_state" placeholder="RJ" maxlength="2">
          </div>
         </div>
         <div id="fuel-info"></div><!-- DADOS DO FRETE -->
         <h3>📦 Dados do Frete</h3>
         <div class="form-row">
-         <div class="form-group">
-          <label for="distance_km">Distância (km)</label> <input type="number" id="distance_km" placeholder="Calculada automaticamente" min="0" step="0.1" readonly>
+         <div class="form-group"><label for="distance_km">Distância (km)</label> <input type="number" id="distance_km" placeholder="Calculada automaticamente" min="0" step="0.1" readonly>
          </div>
-         <div class="form-group">
-          <label for="weight_kg">Peso (kg)</label> <input type="number" id="weight_kg" placeholder="500" min="0" step="0.1">
+         <div class="form-group"><label for="weight_kg">Peso (kg)</label> <input type="number" id="weight_kg" placeholder="500" min="0" step="0.1">
          </div>
-         <div class="form-group">
-          <label for="modality">Modalidade</label> <select id="modality"> <option value="econômico">Econômico</option> <option value="expresso">Expresso</option> <option value="premium">Premium</option> </select>
+         <div class="form-group"><label for="modality">Modalidade</label> <select id="modality"> <option value="econômico">Econômico</option> <option value="expresso">Expresso</option> <option value="premium">Premium</option> </select>
          </div>
         </div>
         <div id="success-message"></div><button class="btn btn-primary" id="calculate-btn"> <i data-lucide="zap"></i> Calcular Frete </button>
@@ -816,23 +804,28 @@
        <div class="card">
         <h2><i data-lucide="sliders"></i> Configurações de Preço</h2>
         <div class="settings-grid">
-         <div class="form-group">
-          <label for="base_rate">Taxa Base (R$ por km)</label> <input type="number" id="base_rate" placeholder="2.50" step="0.01" min="0">
+         <div class="form-group"><label for="base_rate">Taxa Base (R$ por km)</label> <input type="number" id="base_rate" placeholder="2.50" step="0.01" min="0">
          </div>
-         <div class="form-group">
-          <label for="weight_rate">Multiplicador de Peso (R$ por kg)</label> <input type="number" id="weight_rate" placeholder="0.15" step="0.01" min="0">
+         <div class="form-group"><label for="weight_rate">Multiplicador de Peso (R$ por kg)</label> <input type="number" id="weight_rate" placeholder="0.15" step="0.01" min="0">
          </div>
-         <div class="form-group">
-          <label for="vehicle_consumption">Consumo do Veículo (km/litro)</label> <input type="number" id="vehicle_consumption" placeholder="5.0" step="0.1" min="0.1">
+         <div class="form-group"><label for="vehicle_consumption">Consumo do Veículo (km/litro)</label> <input type="number" id="vehicle_consumption" placeholder="5.0" step="0.1" min="0.1">
          </div>
-         <div class="form-group">
-          <label for="fuel_price">Preço do Combustível (R$ por litro)</label> <input type="number" id="fuel_price" placeholder="5.50" step="0.01" min="0">
+         <div class="form-group"><label for="fuel_price">Preço do Combustível (R$ por litro)</label> <input type="number" id="fuel_price" placeholder="5.50" step="0.01" min="0">
          </div>
         </div><button class="btn btn-primary" id="save-settings-btn"> <i data-lucide="save"></i> Salvar Configurações </button>
        </div>
        <div class="card">
         <h2><i data-lucide="database"></i> Gerenciamento de Dados</h2>
-        <p style="color: #666; margin-bottom: 1rem;">Total de registros: <strong id="record-count">0</strong></p><button class="btn btn-danger" id="clear-history-btn"> <i data-lucide="trash-2"></i> Limpar Histórico </button>
+        <p style="color: #666; margin-bottom: 1rem;">Total de registros: <strong id="record-count">0</strong></p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;"><button class="btn btn-primary" id="backup-btn" style="background: #2563eb;"> <i data-lucide="download"></i> 💾 Baixar Backup (JSON) </button> <button class="btn btn-danger" id="clear-history-btn"> <i data-lucide="trash-2"></i> Limpar Histórico </button>
+        </div>
+        <div id="backup-info" style="margin-top: 1.5rem; padding: 1rem; background: #f0f9ff; border-left: 4px solid #0ea5e9; border-radius: 0.5rem; color: #0c4a6e; display: none;"><strong>💡 Como usar o backup:</strong>
+         <ol style="margin: 0.5rem 0 0 1.5rem; padding: 0;">
+          <li>Clique em "Baixar Backup" para salvar seus dados</li>
+          <li>Coloque o arquivo em um lugar seguro</li>
+          <li>Se mudar de conta, use "Restaurar Backup" para recuperar tudo</li>
+         </ol>
+        </div><button class="btn btn-secondary" id="restore-btn" style="margin-top: 1rem; display: none;"> <i data-lucide="upload"></i> 📂 Restaurar Backup </button> <input type="file" id="restore-file" accept=".json" style="display: none;">
        </div>
       </div><!-- TAB: ADMIN -->
       <div id="admin" class="tab-content">
@@ -1541,6 +1534,155 @@
       }
 
       showSuccessMessage('Configurações atualizadas!');
+    });
+
+    // Backup
+    document.getElementById('backup-btn').addEventListener('click', () => {
+      const backupData = {
+        version: '1.0',
+        exported_at: new Date().toISOString(),
+        user: currentUser,
+        records: allRecords,
+        rides: allRides,
+        drivers: allDrivers,
+        config: config
+      };
+
+      const dataStr = JSON.stringify(backupData, null, 2);
+      const dataBlob = new Blob([dataStr], { type: 'application/json' });
+      const url = URL.createObjectURL(dataBlob);
+      
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `fcp_backup_${new Date().getTime()}.json`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      
+      showSuccessMessage('✅ Backup baixado com sucesso!');
+      
+      // Mostrar botão de restaurar
+      document.getElementById('restore-btn').style.display = 'inline-block';
+      document.getElementById('backup-info').style.display = 'block';
+    });
+
+    // Restaurar backup
+    document.getElementById('restore-btn').addEventListener('click', () => {
+      document.getElementById('restore-file').click();
+    });
+
+    document.getElementById('restore-file').addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = async (event) => {
+        try {
+          const backupData = JSON.parse(event.target.result);
+          
+          // Validar estrutura do backup
+          if (!backupData.records || !Array.isArray(backupData.records)) {
+            showErrorMessage('❌ Arquivo de backup inválido!');
+            return;
+          }
+
+          // Confirmar restauração
+          const overlay = document.createElement('div');
+          overlay.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 1000;';
+          
+          const modal = document.createElement('div');
+          modal.style.cssText = 'background: white; padding: 2rem; border-radius: 0.75rem; max-width: 500px; width: 90%;';
+          
+          modal.innerHTML = `
+            <h2 style="font-size: 1.5rem; color: #1e3c72; margin-bottom: 1rem;">⚠️ Restaurar Backup?</h2>
+            <p style="color: #666; margin-bottom: 1rem;">
+              Este backup contém:<br>
+              • <strong>${backupData.records.length}</strong> cálculos de frete<br>
+              • <strong>${backupData.rides.length}</strong> entregas<br>
+              • <strong>${backupData.drivers.length}</strong> motoristas
+            </p>
+            <p style="color: #991b1b; background: #fee2e2; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+              ⚠️ Todos os dados atuais serão <strong>SUBSTITUÍDOS</strong>. Esta ação não pode ser desfeita!
+            </p>
+            <div style="display: flex; gap: 1rem;">
+              <button id="cancel_restore" style="flex: 1; padding: 0.75rem; border: none; border-radius: 0.5rem; background: #e5e7eb; color: #374151; cursor: pointer; font-weight: 600;">Cancelar</button>
+              <button id="confirm_restore" style="flex: 1; padding: 0.75rem; border: none; border-radius: 0.5rem; background: #dc2626; color: white; cursor: pointer; font-weight: 600;">Restaurar Agora</button>
+            </div>
+          `;
+          
+          overlay.appendChild(modal);
+          document.body.appendChild(overlay);
+          
+          document.getElementById('cancel_restore').addEventListener('click', () => {
+            overlay.remove();
+          });
+          
+          document.getElementById('confirm_restore').addEventListener('click', async () => {
+            const btn = document.getElementById('confirm_restore');
+            btn.disabled = true;
+            btn.textContent = 'Restaurando...';
+
+            try {
+              // Deletar dados atuais
+              for (const record of allRecords) {
+                await window.dataSdk.delete(record);
+              }
+              for (const ride of allRides) {
+                await window.dataSdk.delete(ride);
+              }
+              for (const driver of allDrivers) {
+                await window.dataSdk.delete(driver);
+              }
+
+              // Restaurar dados do backup
+              for (const record of backupData.records) {
+                const { __backendId, ...cleanRecord } = record;
+                await window.dataSdk.create(cleanRecord);
+              }
+              for (const ride of backupData.rides) {
+                const { __backendId, ...cleanRecord } = ride;
+                await window.dataSdk.create(cleanRecord);
+              }
+              for (const driver of backupData.drivers) {
+                const { __backendId, ...cleanRecord } = driver;
+                await window.dataSdk.create(cleanRecord);
+              }
+
+              // Restaurar config
+              if (backupData.config) {
+                config = { ...config, ...backupData.config };
+                if (window.elementSdk) {
+                  await window.elementSdk.setConfig(config);
+                }
+              }
+
+              overlay.remove();
+              showSuccessMessage('✅ Backup restaurado com sucesso! Atualizando dados...');
+              
+              // Limpar input
+              document.getElementById('restore-file').value = '';
+            } catch (error) {
+              console.error('Erro ao restaurar:', error);
+              showErrorMessage('❌ Erro ao restaurar backup');
+              btn.disabled = false;
+              btn.textContent = 'Restaurar Agora';
+            }
+          });
+          
+          overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+              overlay.remove();
+            }
+          });
+          
+        } catch (error) {
+          console.error('Erro ao ler backup:', error);
+          showErrorMessage('❌ Erro ao ler arquivo de backup');
+        }
+      };
+      
+      reader.readAsText(file);
     });
 
     // Clear history
@@ -2397,5 +2539,5 @@
       document.getElementById('summary-stats').innerHTML = html;
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a06b0a3d19385040',t:'MTc4MDYxOTEyNQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a06b5b503f1fb530',t:'MTc4MDYyMjQ0Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
